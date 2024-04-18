@@ -1,0 +1,9 @@
+<launch>
+    <include file="$(find-pkg-share ros_tcp_endpoint)/launch/endpoint.py">
+    </include>
+
+    <node pkg="tf2_ros" exec="static_transform_publisher" name="world_to_map" args="0 0 0 0 0 0 world map"/>
+  
+    <include file="$(find-pkg-share zx120_unity)/launch/zx120_standby.launch.py">
+    </include>
+  </launch>

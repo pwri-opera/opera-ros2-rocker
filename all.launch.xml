@@ -1,9 +1,21 @@
 <launch>
-    <include file="$(find-pkg-share ros_tcp_endpoint)/launch/endpoint.py">
-    </include>
+  <include file="$(find-pkg-share ros_tcp_endpoint)/launch/endpoint.py">
+  </include>
 
-    <node pkg="tf2_ros" exec="static_transform_publisher" name="world_to_map" args="0 0 0 0 0 0 world map"/>
-  
-    <include file="$(find-pkg-share zx120_unity)/launch/zx120_standby.launch.py">
-    </include>
-  </launch>
+  <node pkg="tf2_ros" exec="static_transform_publisher" name="world_to_map" args="0 0 0 0 0 0 world map"/>
+
+  <!--
+  <include file="$(find-pkg-share zx120_unity)/launch/zx120_standby.launch.py">
+  </include>
+  -->
+
+  <include file="$(find-pkg-share zx200_bringup)/launch/vehicle.launch.py">
+    <arg name="command_interface_name" value="velocity" />
+    <arg name="use_rviz" value="True" />
+  </include>
+
+  <!--
+  <include file="$(find-pkg-share ic120_unity)/launch/ic120_standby_ekf.launch.py">
+  </include>
+  -->
+</launch>

@@ -8,6 +8,7 @@ RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y git vim python-is-python3 python3-colcon-common-extensions \
         ros-humble-rosbridge-suite \
+        ros-humble-tf-transformations \
         ros-humble-controller-manager \
         ros-humble-joint-trajectory-controller \
         ros-humble-joint-state-broadcaster \
@@ -30,5 +31,6 @@ RUN source /opt/ros/$ROS_DISTRO/setup.bash && \
     git clone --depth=1 https://github.com/pwri-opera/com3_ros.git && \
     git clone --depth=1 https://github.com/pwri-opera/zx120_ros2.git && \
     git clone --depth=1 https://github.com/pwri-opera/zx200_ros2.git && \
+    git clone --depth=1 https://github.com/pwri-opera/ic120_ros2.git && \
     cd /ws && \
     colcon build
